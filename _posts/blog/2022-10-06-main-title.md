@@ -8,7 +8,10 @@ thumbnail: /images/uploads/снимок-экрана-2022-10-05-в-18.51.59.png
 
 **bold text**
 
-#﻿# Body subtitle
+## Body subtitle
 
 B﻿ody
 
+
+
+![Moon](https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__340.jpg "Some image")
