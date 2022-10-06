@@ -7,3 +7,10 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+
+declare global {
+	interface Window {
+		netlifyIdentity: string;
+		some: number
+	}
+}
