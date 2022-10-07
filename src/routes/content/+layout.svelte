@@ -1,0 +1,1 @@
+<article class="prose md:prose-lg lg:prose-xl"><slot /></article>

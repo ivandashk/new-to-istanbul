@@ -6,12 +6,12 @@ import mkdirp from 'mkdirp';
 
 const src = path.join(cwd(), 'src');
 const inputBase = path.join(src, 'cms');
-const outputBase = path.join(src, 'routes');
+const outputBase = path.join(src, 'routes', 'content');
 
 function process(filePath) {
 	const relativePathDir = path.relative(inputBase, path.dirname(filePath));
 
-	const newDir = path.join(outputBase, 'content', relativePathDir, path.basename(filePath, '.md'));
+	const newDir = path.join(outputBase, relativePathDir, path.basename(filePath, '.md'));
 	const pageFileName = '+page.svelte';
 	
 	const newPath = path.join(newDir, pageFileName);
@@ -31,12 +31,12 @@ function process(filePath) {
 	writeFileSync(newPath, pageSource);
 }
 
-export function generateContentPages() {
-	const generatesRoutesDir = path.join(outputBase, 'content');
+export function generateContentPages(folderName) {
+	const generatesRoutesDir = path.join(outputBase, folderName);
 	if (existsSync(generatesRoutesDir)) {
 		rmSync(generatesRoutesDir, { recursive: true, force: true });
 	}
 	glob.sync(path.join(inputBase, '**', '*.md')).forEach(process);
 }
 
-generateContentPages();
+generateContentPages('posts');
