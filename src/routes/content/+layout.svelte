@@ -1,4 +1,4 @@
-<article class="prose mx-auto p-6 pt-16 pb-36 md:prose-lg md:pt-24 lg:prose-xl">
+<article class="prose mx-auto p-6 py-16 md:prose-lg md:py-24 lg:prose-xl">
 	<slot />
 </article>
 
