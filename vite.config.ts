@@ -6,7 +6,8 @@ const config: UserConfig = {
 	plugins: [sveltekit()],
 	resolve: {
 		alias: {
-			$cms: resolve('./src/cms')
+			$cms: resolve('./src/cms'),
+			$components: resolve('./src/components')
 		}
 	}
 };

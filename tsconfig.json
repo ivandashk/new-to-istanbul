@@ -10,7 +10,8 @@
 		"sourceMap": true,
 		"strict": true,
 		"paths": {
-			"$cms/*": ["src/cms/*"]
+			"$cms/*": ["src/cms/*"],
+			"$components/*": ["src/components/*"]
 		}
 	}
 }
