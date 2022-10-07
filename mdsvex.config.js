@@ -1,4 +1,5 @@
 import { defineMDSveXConfig as defineConfig } from 'mdsvex';
+import rehypeFigure from 'rehype-figure';
 
 const config = defineConfig({
 	extensions: ['.svelte.md', '.md', '.svx'],
@@ -8,7 +9,7 @@ const config = defineConfig({
 	},
 
 	remarkPlugins: [],
-	rehypePlugins: []
+	rehypePlugins: [rehypeFigure]
 });
 
 export default config;
