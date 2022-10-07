@@ -13,9 +13,9 @@ function process(filePath) {
 
 	const newDir = path.join(outputBase, relativePathDir, path.basename(filePath, '.md'));
 	const pageFileName = '+page.svelte';
-	
+
 	const newPath = path.join(newDir, pageFileName);
-	
+
 	const pathToContent = path.join(relativePathDir, path.basename(filePath));
 	const pageSource = `
 		<script lang="ts">

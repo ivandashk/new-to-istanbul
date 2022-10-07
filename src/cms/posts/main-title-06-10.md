@@ -7,8 +7,7 @@ thumbnail: /images/uploads/снимок-экрана-2022-10-05-в-18.51.59.png
 
 # What if we stack headings?
 
-
-Sometimes you have *headings* directly **underneath** each other. In those cases you often have to undo the top margin on the second heading because it usually looks better for the headings to be closer together than a paragraph followed by a heading should be.
+Sometimes you have _headings_ directly **underneath** each other. In those cases you often have to undo the top margin on the second heading because it usually looks better for the headings to be closer together than a paragraph followed by a heading should be.
 
 <https://www.markdownguide.org>
 
