@@ -8,9 +8,4 @@ declare namespace App {
 	// interface Platform {}
 }
 
-declare global {
-	interface Window {
-		netlifyIdentity: string;
-		some: number
-	}
-}
+declare module '*.md';
