@@ -1,7 +1,7 @@
 ---
 layout: blog
-title: Main title
-date: 2022-10-06T15:27:38.547Z
+title: Научиться пользоваться Istanbulcard
+date: 2022-10-07T20:24:38.547Z
 thumbnail: /images/uploads/снимок-экрана-2022-10-05-в-18.51.59.png
 ---
 
