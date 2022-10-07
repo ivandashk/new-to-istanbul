@@ -18,7 +18,10 @@ const config = {
 
 	kit: {
 		// default options are shown
-		adapter: adapter()
+		adapter: adapter(),
+		serviceWorker: {
+			register: false
+		}
 	}
 };
 
