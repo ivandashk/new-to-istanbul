@@ -7,7 +7,8 @@ const config: UserConfig = {
 	resolve: {
 		alias: {
 			$cms: resolve('./src/cms'),
-			$components: resolve('./src/components')
+			$components: resolve('./src/components'),
+			$metadata: resolve('./src/metadata.ts')
 		}
 	}
 };

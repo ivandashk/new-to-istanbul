@@ -15,7 +15,7 @@
 		<ToDoCheckbox text="Доехать от аэропорта до Стамбула" />
 		<ToDoCheckbox
 			text="Научиться пользоваться Istanbulcard"
-			guideHref="/content/posts/научиться-пользоваться-istanbulcard-07-10"
+			guideHref="/content/posts/2022-10-07-научиться-пользоваться-istanbulcard"
 		/>
 		<ToDoCheckbox text="Арендовать жилье на первое время" />
 		<ToDoCheckbox text="Купить симкарту с мобильным интернетом" />
