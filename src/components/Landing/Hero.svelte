@@ -7,24 +7,17 @@
 
 	const links = [
 		{
-			text: 'Навигация',
+			text: 'Гайды и руководства',
+			href: '#guides'
+		},
+		{
+			text: 'О проекте',
 			href: '#'
 		},
 		{
-			text: 'Деньги',
-			href: '#'
-		},
-		{
-			text: 'Аренда',
-			href: '#'
-		},
-		{
-			text: 'Вид на жительство',
-			href: '#'
-		},
-		{
-			text: 'Сообщество',
-			href: '#'
+			text: 'Помочь проекту',
+			href: '#',
+			highlight: true
 		}
 	];
 </script>
@@ -83,8 +76,11 @@
 						</div>
 						<div class="hidden md:block md:space-x-8 md:pr-4">
 							{#each links as link (link.text)}
-								<a href={link.href} class="font-medium text-gray-500 hover:text-gray-900"
-									>{link.text}</a
+								<a
+									href={link.href}
+									class="font-medium {link.highlight
+										? 'text-orange-600 hover:text-orange-500'
+										: 'text-gray-500 hover:text-gray-900'}">{link.text}</a
 								>
 							{/each}
 						</div>
@@ -135,8 +131,9 @@
 							{#each links as link (link.text)}
 								<a
 									href={link.href}
-									class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-									>{link.text}</a
+									class="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-50  {link.highlight
+										? 'text-orange-600 hover:text-orange-500'
+										: 'text-gray-700 hover:text-gray-900'}">{link.text}</a
 								>
 							{/each}
 						</div>
@@ -173,8 +170,8 @@
 	</div>
 	<div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
 		<img
-			class="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
-			src="https://img2.goodfon.ru/wallpaper/nbig/1/67/istanbul-turkey-gorod-stambul.jpg"
+			class="h-56 w-full object-cover object-left sm:h-72 md:h-96 lg:right-52 lg:h-full lg:w-full"
+			src="/images/hero-aya-sophia.jpg"
 			alt=""
 		/>
 	</div>

@@ -23,6 +23,6 @@
 		{text}
 	</label>
 	{#if guideHref}
-		<a href={guideHref} class="text-orange-500 hover:text-orange-600"> — Гайд </a>
+		<a href={guideHref} class="text-orange-600 hover:text-orange-500"> — Гайд </a>
 	{/if}
 </div>
