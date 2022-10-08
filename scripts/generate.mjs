@@ -46,8 +46,6 @@ function processMdFile(filePath) {
 
 	mkdirp.sync(newDir);
 	writeFileSync(newPath, pageSource);
-
-	console.log(newPath);
 }
 
 function populateMetadata(filePath) {
@@ -88,11 +86,20 @@ function writeMetadata() {
 	);
 }
 
-export function generateContentPages() {
+function generatePagesForCollection(collectionName) {
 	cleanRoutes('posts');
+	glob.sync(path.join(inputBase, collectionName, '*.md')).forEach(processMdFile);
+}
+
+function populateMetadataForCollection(collectionName) {
+	glob.sync(path.join(inputBase, collectionName, '*.md')).forEach(populateMetadata);
+}
+
+export function generateContentPages() {
 	cleanMetadata();
 
-	glob.sync(path.join(inputBase, '**', '*.md')).forEach(processMdFile);
+	generatePagesForCollection('posts');
+	populateMetadataForCollection('creators');
 
 	writeMetadata();
 }

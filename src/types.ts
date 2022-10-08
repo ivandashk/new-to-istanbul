@@ -1,5 +1,6 @@
 export type Metadata = {
 	posts: Post[];
+	creators: Creator[];
 };
 
 export type Post = {
@@ -8,4 +9,13 @@ export type Post = {
 	date: string;
 	thumbnail: string;
 	slug: string;
+	creator: Creator['name'];
+};
+
+export type Creator = {
+	name: string;
+	description: string;
+	avatar: string;
+	slug: string;
+	telegram?: string;
 };
