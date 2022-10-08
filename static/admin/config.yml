@@ -15,6 +15,23 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Creator',
+          name: 'creator',
+          widget: 'relation',
+          collection: 'creators',
+          value_field: 'name',
+          search_fields: ['name']
+        }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'creators'
+    label: 'Creators'
+    folder: 'src/cms/creators'
+    create: true
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Avatar', name: 'avatar', widget: 'image' }
+      - { label: 'Telegram', name: 'telegram', widget: 'string', required: false }
