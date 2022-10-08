@@ -1,6 +1,6 @@
-import type { Metadata } from './types';
+import type { Collections } from '../types';
 
-export const metadata: Metadata = {
+export const collections: Collections = {
 	posts: [
 		{
 			layout: 'blog',

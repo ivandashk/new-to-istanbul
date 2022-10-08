@@ -1,4 +1,4 @@
-export type Metadata = {
+export type Collections = {
 	posts: Post[];
 	creators: Creator[];
 };

@@ -15,8 +15,11 @@ const src = path.join(cwd(), 'src');
 const inputBase = path.join(src, 'cms');
 const routesOutputBase = path.join(src, 'routes', 'content');
 
-const metadataPath = path.join(src, 'metadata.ts');
-const metadata = {};
+const metadataBase = path.join(src, 'metadata');
+const metadataMapsBase = path.join(metadataBase, 'maps');
+const collectionsPath = path.join(metadataBase, 'collections.ts');
+
+const collections = {};
 
 function cleanRoutes(folderName) {
 	const generatesRoutesDir = path.join(routesOutputBase, folderName);
@@ -25,10 +28,11 @@ function cleanRoutes(folderName) {
 	}
 }
 
-function processMdFile(filePath) {
+function processPosts(filePath) {
 	const relativePathDir = path.relative(inputBase, path.dirname(filePath));
 
-	const newDir = path.join(routesOutputBase, relativePathDir, path.basename(filePath, '.md'));
+	const slug = path.basename(filePath, '.md');
+	const newDir = path.join(routesOutputBase, relativePathDir, slug);
 	const pageFileName = '+page.svelte';
 
 	const newPath = path.join(newDir, pageFileName);
@@ -36,24 +40,25 @@ function processMdFile(filePath) {
 	const pathToContent = path.join(relativePathDir, path.basename(filePath));
 	const pageSource = `
 		<script lang="ts">
-			import Content from '$cms/${pathToContent}'
+			import Content from '$cms/${pathToContent}';
+			import PostLayout from '$components/PostLayout/PostLayout.svelte';
 		</script>
 
-		<Content />
+		<PostLayout slug="${slug}">
+			<Content />
+		</PostLayout>
 	`;
-
-	populateMetadata(filePath);
 
 	mkdirp.sync(newDir);
 	writeFileSync(newPath, pageSource);
 }
 
-function populateMetadata(filePath) {
-	const category = path.basename(path.dirname(filePath));
+function addToCollection(filePath) {
+	const collection = path.basename(path.dirname(filePath));
 	const fileName = path.basename(filePath, '.md');
 
-	if (!metadata[category]) {
-		metadata[category] = [];
+	if (!collections[collection]) {
+		collections[collection] = [];
 	}
 
 	unified()
@@ -68,40 +73,70 @@ function populateMetadata(filePath) {
 
 			file.data.slug = fileName;
 
-			metadata[category].push(file.data);
+			collections[collection].push(file.data);
 		});
 }
 
 function cleanMetadata() {
-	rmSync(metadataPath, { force: true });
+	rmSync(metadataBase, { force: true, recursive: true });
 }
 
-function writeMetadata() {
+function writeCollections() {
+	mkdirp.sync(metadataBase);
 	writeFileSync(
-		metadataPath,
+		collectionsPath,
 		`
-		import type { Metadata } from './types';
+		import type { Collections } from '../types';
 
-		export const metadata: Metadata = ${JSON.stringify(metadata)};`
+		export const collections: Collections = ${JSON.stringify(collections)};
+		`
 	);
 }
 
 function generatePagesForCollection(collectionName) {
 	cleanRoutes('posts');
-	glob.sync(path.join(inputBase, collectionName, '*.md')).forEach(processMdFile);
+	glob.sync(path.join(inputBase, collectionName, '*.md')).forEach(processPosts);
 }
 
-function populateMetadataForCollection(collectionName) {
-	glob.sync(path.join(inputBase, collectionName, '*.md')).forEach(populateMetadata);
+function addCollectionCategoryToCollection(collectionName) {
+	glob.sync(path.join(inputBase, collectionName, '*.md')).forEach(addToCollection);
+}
+
+function createCollectionMapByKey(collectionName, key) {
+	const map = collections[collectionName].reduce((acc, collection) => {
+		return {
+			...acc,
+			[collection[key]]: collection
+		};
+	}, {});
+
+	mkdirp.sync(metadataMapsBase);
+
+	const functionName = `map${capitalizeFirstLetter(collectionName)}By${capitalizeFirstLetter(key)}`;
+	writeFileSync(
+		path.join(metadataMapsBase, `${functionName}.ts`),
+		`
+		export const ${functionName} = ${JSON.stringify(map)} as const;
+		`
+	);
+}
+
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export function generateContentPages() {
 	cleanMetadata();
 
-	generatePagesForCollection('posts');
-	populateMetadataForCollection('creators');
+	addCollectionCategoryToCollection('posts');
+	createCollectionMapByKey('posts', 'slug');
 
-	writeMetadata();
+	addCollectionCategoryToCollection('creators');
+	createCollectionMapByKey('creators', 'name');
+
+	generatePagesForCollection('posts');
+
+	writeCollections();
 }
 
 generateContentPages();

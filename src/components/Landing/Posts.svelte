@@ -1,8 +1,8 @@
 <script lang="ts">
 	import PostCard from '$components/PostCard/PostCard.svelte';
-	import { metadata } from '$metadata';
+	import { collections } from '$metadata/collections';
 
-	const { posts } = metadata;
+	const { posts } = collections;
 </script>
 
 <div id="guides" class="py-12 px-4 text-center">
