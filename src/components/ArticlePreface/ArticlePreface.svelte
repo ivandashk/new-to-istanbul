@@ -19,6 +19,6 @@
 
 	<div style="font-size: 0;lint-height: 0;">
 		<div class="text-base text-slate-800">{creator.name}</div>
-		<div class="text-sm text-slate-400">{publicationDate}</div>
+		<div class="text-sm text-slate-400">{publicationDate} · {post.readingTime} мин</div>
 	</div>
 </div>

@@ -3,9 +3,10 @@ layout: blog
 title: Научиться пользоваться Istanbulcard
 creator: Иван Дашкевич
 date: 2022-10-07T20:24:38.547Z
-reading-time: 3
+readingTime: 3
 thumbnail: /images/uploads/halic-bridge-train-station.jpg
 ---
+
 # { title }
 
 В Стамбуле работает универсальная карта, по которой можно ездить на метро, Marmaray (легкое метро), трамвае и паромах — Istanbulcard.

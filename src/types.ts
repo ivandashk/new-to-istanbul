@@ -9,6 +9,7 @@ export type Post = {
 	date: string;
 	thumbnail: string;
 	slug: string;
+	readingTime: number;
 	creator: Creator['name'];
 };
 
