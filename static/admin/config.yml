@@ -29,6 +29,7 @@ collections:
   - name: 'creators'
     label: 'Creators'
     folder: 'src/cms/creators'
+    create: true
     identifier_field: slug
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
