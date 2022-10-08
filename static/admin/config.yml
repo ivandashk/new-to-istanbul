@@ -20,7 +20,7 @@ collections:
           name: 'creator',
           widget: 'relation',
           collection: 'creators',
-          value_field: 'slug',
+          value_field: 'name',
           search_fields: ['name']
         }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
@@ -30,7 +30,8 @@ collections:
     label: 'Creators'
     folder: 'src/cms/creators'
     create: true
-    identifier_field: slug
+    delete: false
+    identifier_field: name
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - { label: 'Name', name: 'name', widget: 'string' }
