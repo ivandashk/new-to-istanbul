@@ -16,8 +16,8 @@
 	<div class="mx-auto lg:max-w-lg lg:text-left">
 		<ToDoCheckbox text="Доехать от аэропорта до Стамбула" />
 		<ToDoCheckbox
-			text="Научиться пользоваться Istanbulcard"
-			guideHref="/content/posts/2022-10-07-научиться-пользоваться-istanbulcard"
+			text="Научиться пользоваться İstanbulkart"
+			guideHref="/content/posts/2022-10-07-научиться-пользоваться-istanbulkart"
 		/>
 		<ToDoCheckbox text="Арендовать жилье на первое время" />
 		<ToDoCheckbox text="Купить симкарту с мобильным интернетом" />
