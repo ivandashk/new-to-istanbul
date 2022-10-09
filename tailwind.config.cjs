@@ -1,5 +1,6 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme');
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 /** @type {import('tailwindcss').Config} */
 const config = {
