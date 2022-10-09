@@ -1,25 +1,11 @@
 <script lang="ts">
+	import { landingIds, landingLinks } from './constants';
+
 	let isBurgerMenuOpened = false;
 
 	function toggleBurgerMenu() {
 		isBurgerMenuOpened = !isBurgerMenuOpened;
 	}
-
-	const links = [
-		{
-			text: 'Гайды и руководства',
-			href: '#guides'
-		},
-		{
-			text: 'О проекте',
-			href: '#'
-		},
-		{
-			text: 'Помочь проекту',
-			href: '#',
-			highlight: true
-		}
-	];
 </script>
 
 <div class="relative overflow-hidden bg-white">
@@ -75,7 +61,7 @@
 							</div>
 						</div>
 						<div class="hidden md:block md:space-x-8 md:pr-4">
-							{#each links as link (link.text)}
+							{#each landingLinks as link (link.text)}
 								<a
 									href={link.href}
 									class="font-medium {link.highlight
@@ -128,7 +114,7 @@
 							</div>
 						</div>
 						<div class="space-y-1 px-2 pt-2 pb-3">
-							{#each links as link (link.text)}
+							{#each landingLinks as link (link.text)}
 								<a
 									href={link.href}
 									class="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-50  {link.highlight
@@ -158,7 +144,7 @@
 					<div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
 						<div class="rounded-md shadow">
 							<a
-								href="#most-important"
+								href="#{landingIds.mostImportant}"
 								class="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-orange-700 md:py-4 md:px-10 md:text-lg"
 								>Начать</a
 							>

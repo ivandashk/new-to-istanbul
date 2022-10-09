@@ -1,8 +1,10 @@
 <script lang="ts">
 	import ToDoCheckbox from '$components/ToDoCheckbox/ToDoCheckbox.svelte';
+
+	import { landingIds } from './constants';
 </script>
 
-<div id="most-important" class="px-4 pt-16 pb-12 text-center lg:pt-32 lg:pb-16">
+<div id={landingIds.mostImportant} class="px-4 pt-16 pb-12 text-center lg:pt-32 lg:pb-16">
 	<h2 class="text-3xl font-extrabold text-slate-900 md:text-5xl">Самое важное</h2>
 
 	<p class="my-8 mx-auto max-w-3xl text-slate-500">

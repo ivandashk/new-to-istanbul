@@ -5,5 +5,6 @@
 <Landing.Hero />
 <Landing.MostImportant />
 <Landing.Posts />
+<Landing.About />
 
 <Landing.Footer />
