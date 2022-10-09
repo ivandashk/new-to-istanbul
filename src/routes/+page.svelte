@@ -11,7 +11,7 @@
 	<meta property="og:type" content="website" />
 	<meta
 		property="og:description"
-		content="Мы собрали для вас пошаговые руководства как быстро освоиться в городе и начать чувствовать себя комфортно"
+		content="Мы собрали для вас пошаговые руководства как быстро освоиться в Стамбуле и начать чувствовать себя комфортно"
 	/>
 	<meta property="og:url" content={$page.url.origin} />
 	<meta property="og:image" content="{$page.url.origin}/images/hero-aya-sophia.jpg" />
@@ -21,5 +21,4 @@
 <Landing.MostImportant />
 <Landing.Posts />
 <Landing.About />
-
 <Landing.Footer />

@@ -16,8 +16,8 @@
 
 	<meta property="og:type" content="article" />
 	<meta property="article:author" content={creator.name} />
-	<meta property="article:publisher" content="https://www.facebook.com/YOUR-PAGE" />
 	<meta property="og:title" content={post.title} />
+	<meta property="og:description" content="{creator.name} · {post.readingTime} мин" />
 	<meta property="og:site_name" content={siteName} />
 	<meta property="og:image" content="{$page.url.origin}{post.thumbnail}" />
 </svelte:head>
