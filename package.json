@@ -3,15 +3,16 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "pnpm run generate && vite dev",
-		"build": "pnpm run generate && vite build",
-		"preview": "pnpm run generate && vite preview",
+		"dev": "pnpm generate && vite dev",
+		"build": "pnpm generate && pnpm sitemap && vite build",
+		"preview": "pnpm generate && vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint . --max-warnings 0",
 		"format": "prettier --plugin-search-dir . --write .",
 		"prepare": "husky install",
-		"generate": "node ./scripts/generate.mjs && pnpm run format"
+		"generate": "node ./scripts/generate.mjs && pnpm format",
+		"sitemap": "npx sitemap-generator-cli --filepath ./static/sitemap.xml --priority-map '1.0,0.8,0.6,0.4' --change-freq daily https://istanbul-guide.netlify.app"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-netlify": "^1.0.0-next.78",
