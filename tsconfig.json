@@ -12,6 +12,7 @@
 		"paths": {
 			"$cms/*": ["src/cms/*"],
 			"$components/*": ["src/components/*"],
+			"$constants/*": ["src/constants/*"],
 			"$metadata/*": ["src/metadata/*"]
 		}
 	}

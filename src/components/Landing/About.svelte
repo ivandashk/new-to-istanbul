@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { collections } from '$metadata/collections';
+	import { siteName } from '$constants/siteName';
 
 	import { landingIds } from './constants';
 
@@ -11,8 +12,8 @@
 
 	<p class="my-8 mx-auto max-w-4xl text-slate-500">
 		Освоится самостоятельно в новом городе и новой стране может быть непростой задачей.<br />Проект
-		Istanbul Guide создан с целью помочь адаптироваться людям в новом окружении, получать
-		удовольствие и комфорт от жизни в Стамбуле
+		{siteName} создан с целью помочь адаптироваться людям в новом окружении, получать удовольствие и
+		комфорт от жизни в Стамбуле
 	</p>
 
 	<div class="mx-auto grid max-w-5xl grid-cols-1 justify-items-center gap-6">
